@@ -1,7 +1,7 @@
 // @ts-nocheck
 (function () {
     const DEBUG_MODE = true || location.hostname === 'localhost' || location.search.includes('mdb_pixel_debug=true');
-    const PROXY_URL = 'https://proxyprovider-vhkdzfr2sq-uc.a.run.app';
+    const PROXY_URL = 'https://us-central1-klarivopvt.cloudfunctions.net/tracking';
 
     // Verify DEBUG_MODE immediately
     if (DEBUG_MODE) {
@@ -57,7 +57,7 @@
         }).then(response => {
             if (DEBUG_MODE) console.log('Pixel response:', response.status, response.statusText);
             if (!response.ok) {
-                throw new Error(`HTTP error! status: ${response.status}`);
+                throw new Error(` error! status: ${response.status}`);
             }
             return response.text();
         }).then(text => {
