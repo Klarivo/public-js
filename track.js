@@ -48,7 +48,8 @@
    function loadPixel() {
     try {
         const deviceId = getDeviceId();
-        const payload = { deviceId };
+        const trackingId = 'cmdebdd8r0001s6010zcihtge'; //demandbox
+        const payload = { deviceId, trackingId };
         if (DEBUG_MODE) console.log('Sending pixel request to:', PROXY_URL + '/pixel', 'Payload:', payload);
         fetch(PROXY_URL + '/pixel', {
             method: 'POST',
