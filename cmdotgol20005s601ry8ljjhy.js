@@ -1,6 +1,6 @@
 // @ts-nocheck
 (function () {
-    const DEBUG_MODE = true || location.hostname === 'localhost' || location.search.includes('mdb_pixel_debug=true');
+    const DEBUG_MODE = location.hostname === 'localhost' || location.search.includes('mdb_pixel_debug=true');
     const PROXY_URL = 'https://us-central1-klarivopvt.cloudfunctions.net/tracking';
     const TRACKING_ID = "cmdotgol20005s601ry8ljjhy";
 
