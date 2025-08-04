@@ -2,6 +2,7 @@
 (function () {
     const DEBUG_MODE = true || location.hostname === 'localhost' || location.search.includes('mdb_pixel_debug=true');
     const PROXY_URL = 'https://us-central1-klarivopvt.cloudfunctions.net/tracking';
+    const TRACKING_ID = "cmdebdd8r0001s6010zcihtge";
 
     // Verify DEBUG_MODE immediately
     if (DEBUG_MODE) {
@@ -48,7 +49,7 @@
    function loadPixel() {
     try {
         const deviceId = getDeviceId();
-        const trackingId = 'cmdebdd8r0001s6010zcihtge';
+        const trackingId = TRACKING_ID;
         const payload = { deviceId, trackingId };
         if (DEBUG_MODE) console.log('Sending pixel request to:', PROXY_URL + '/pixel', 'Payload:', payload);
         fetch(PROXY_URL + '/pixel', {
@@ -91,6 +92,7 @@
         const searchParams = new URLSearchParams(location.search);
         const payload = {
             deviceId, pixelTimestamp: new Date().toISOString(), eventSignal, pageUrl: location.href,
+            trackingId: TRACKING_ID,
             pageTitle: document.title, eventReferrerUrl: document.referrer || undefined, outlinkUrl,
             customProperties: Object.keys(customProperties).length > 0 ? customProperties : undefined,
             utmSource: searchParams.get('utm_source') || undefined, utmMedium: searchParams.get('utm_medium') || undefined,
